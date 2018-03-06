@@ -76,13 +76,14 @@ document.getElementsByTagName('head')[0].appendChild(link);
         </section>
 
         <section>
+          <h3>Hvem er jeg?</h3>
           <pre class="strech"><code class="strech" data-trim data-noescape>
-            $ curl 'https://tripletex.no/v2/token/session/>whoAmI'
+            $ <span class="fragment">curl 'https://tripletex.no/v2/token/session/>whoAmI'</span>
             <span class="fragment">
             {
                 "name": "<span class="value">Julian Ravn Thrap-Meyer</span>",
                 "email": "<span class="value">julian@tripletex.no</span>",
-                "role": "<span class="value">Techlead for API 2</span>"
+                "role": "<span class="value">Techlead API 2</span>"
             }
             </span>
           </code></pre>
@@ -166,8 +167,8 @@ document.getElementsByTagName('head')[0].appendChild(link);
           <span class="fragment">
           [
             <span class="fragment">"<span class="value">Velg hvilke felter man ønsker i retur</span>",</span>
-            <span class="fragment">"<span class="value">Også rekursivt for underobjekter</span>",</span>
-            <span class="fragment">"<span class="value">Kan brukes til å kombinere flere kall til ett</span>"</span>
+            <span class="fragment">"<span class="value">Rekursivt for underobjekter</span>",</span>
+            <span class="fragment">"<span class="value">Slå sammen flere kall til ett</span>"</span>
           ]
           </span>
           </code></pre>
@@ -175,7 +176,7 @@ document.getElementsByTagName('head')[0].appendChild(link);
 
         <section data-background="#0085ca">
           <h3>Eksempel</h3>
-          <p class="fragment">Hent ut alle prosjekter med e-postadressen på prosjektleder</p>
+          <p class="fragment">Hent ut alle prosjekter med e-postadressen til prosjektleder</p>
         </section>
 
         <section data-background="#0085ca">
@@ -183,24 +184,18 @@ document.getElementsByTagName('head')[0].appendChild(link);
           $ <span class="fragment">curl 'https://tripletex.no/v2/<span class="value">project</span>'</span>
           <span class="fragment">
           {
-            "id": 1721973,
+            "id": 987654,
             "version": 2,
-            "url": "tripletex.no/v2/project/1721973",
+            "url": "tripletex.no/v2/project/987654",
             <span class="fragment highlight-yellow">"name": "Mitt prosjekt",</span>
             "number": "43",
             <span class="fragment highlight-yellow">"projectManager": {
-              "id": 170331,
-              "url": "tripletex.no/v2/employee/170331"
+              "id": 45678,
+              "url": "tripletex.no/v2/employee/45678"
             }</span>,
             "startDate": "2013-03-01",
             "endDate": null,
-            "customer": {
-              "id": 685902,
-              "url": "tripletex.no/v2/customer/685902"
-            },
-            "isClosed": false,
-            "projectCategory": null,
-            "displayNameFormat": "NAME_STANDARD"
+            …
           }
           </span>
           </code></pre>
@@ -241,29 +236,29 @@ document.getElementsByTagName('head')[0].appendChild(link);
           {
             "name": "Mitt prosjekt",
             "projectManager": {
-              "id": 845015,
+              "id": 45678,
               "version": 12,
-              "url": "tripletex.no/v2/employee/845015",
+              "url": "tripletex.no/v2/employee/45678",
               "firstName": "Julian Ravn",
               "lastName": "Thrap-Meyer",
               "employeeNumber": "",
-              "dateOfBirth": "1814-05-17",
+              "dateOfBirth": "2018-03-06",
               "email": "julian@tripletex.no",
               "phoneNumberMobile": "",
               "nationalIdentityNumber": "",
               "dnumber": "",
               "bankAccountNumber": "",
               "address": {
-                "id": 9255168,
-                "url": "tripletex.no/v2/address/9255168"
+                "id": 1234,
+                "url": "tripletex.no/v2/address/1234"
               },
               "department": {
-                "id": 58985,
-                "url": "tripletex.no/v2/department/58985"
+                "id": 2345,
+                "url": "tripletex.no/v2/department/2345"
               },
               "employments": [ {
-                "id": 134984,
-                "url": "tripletex.no/v2/employee/employment/134984"
+                "id": 3456,
+                "url": "tripletex.no/v2/employee/employment/3456"
               } ]
             }
           }
@@ -429,6 +424,15 @@ document.getElementsByTagName('head')[0].appendChild(link);
         </section>
 
         <section data-background="#7fbe00">
+          <h3>Hvorfor?</h3>
+          <ul>
+            <li class="fragment">Sparer prosesseringskraft for oss</li>
+            <li class="fragment">Mulig å spørre om endringer oftere</li>
+            <li class="fragment">Bedre for alle sammen :-)</li>
+          </ul>
+        </section>
+
+        <section data-background="#7fbe00">
           <h3>Når?</h3>
           <p class="fragment">Checksum er mulig å teste <b>i dag</b></p>
           <p class="fragment">Ta kontakt!</p>
@@ -445,6 +449,19 @@ document.getElementsByTagName('head')[0].appendChild(link);
           ]
           </span>
           </code></pre>
+        </section>
+
+        <section data-background="#7fbe00" data-transition="slide none">
+          <img class="no-border" src="img/webhooks1.png" />
+        </section>
+        <section data-background="#7fbe00" data-transition="none none">
+          <img class="no-border" src="img/webhooks2.png" />
+        </section>
+        <section data-background="#7fbe00" data-transition="none none">
+          <img class="no-border" src="img/webhooks3.png" />
+        </section>
+        <section data-background="#7fbe00" data-transition="none slide">
+          <img class="no-border" src="img/webhooks4.png" />
         </section>
 
         <section data-background="#7fbe00">
@@ -503,9 +520,6 @@ document.getElementsByTagName('head')[0].appendChild(link);
             <li class="fragment">Checksum, webhooks</li>
           </ul>
           <p class="fragment">Presentasjonen ligger på GitHub!</p>
-
-          JULIAN HUSK Å LEGGE DEN UT PÅ GITHUB
-
         </section>
 
         <section data-background="#7dc6c7">
