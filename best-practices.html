@@ -1,0 +1,547 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Best practices – Tripletex API meetup mars 2018</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <style>
+
+    section img.no-border {
+      background:none;
+      border:none;
+      box-shadow:none;
+    }
+
+    .value span, .value {
+      color: #efef8f !important;
+    }
+
+    code a span {
+      text-decoration: underline;
+      color: #efef8f !important;
+    }
+
+    .reveal section pre code {
+      border-radius: 10px;
+      padding: 20px 10px;
+      font-size: 1.8em;
+      line-height: 1.1em;
+    }
+    .reveal section pre {
+      border-radius: 10px;
+    }
+
+    .reveal .slides section .fragment.highlight-red.visible span {
+      color: #ff2c2d;
+    }
+
+    .reveal .slides section .fragment.highlight-yellow {
+      opacity: 1;
+      visibility: inherit; }
+    .reveal .slides section .fragment.highlight-yellow.visible span {
+      color: #efef9f;
+    }
+
+    </style>
+
+    <!-- Printing and PDF exports -->
+    <script>
+    var link = document.createElement('link');
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match(/print-pdf/gi)
+  ? 'css/print/pdf.css'
+  : 'css/print/paper.css';
+document.getElementsByTagName('head')[0].appendChild(link);
+</script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <!-- Introduction -->
+
+        <section data-background="#7dc6c7">
+          <h2>Best practices</h2>
+          <img src="img/bare_hvit_sky.png" class="no-border" width="30%"/>
+          <p>Utvikling av integrasjoner</p>
+        </section>
+
+        <section>
+          <pre class="strech"><code class="strech" data-trim data-noescape>
+            $ curl 'https://tripletex.no/v2/token/session/>whoAmI'
+            <span class="fragment">
+            {
+                "name": "<span class="value">Julian Ravn Thrap-Meyer</span>",
+                "email": "<span class="value">julian@tripletex.no</span>",
+                "role": "<span class="value">Techlead for API 2</span>"
+            }
+            </span>
+          </code></pre>
+        </section>
+
+        <section>
+          <pre><code data-trim data-noescape>
+          $ curl 'https://tripletex.no/v2/#table-of-contents'
+          <span class="fragment">
+          [
+              <span class="fragment">"<span class="value">Ressurser</span>",</span>
+              <span class="fragment">"<span class="value">Tips of triks</span>",</span>
+              <span class="fragment">"<span class="value">Kommende funksjonalitet</span>"</span>
+              <span class="fragment"># Kom gjerne med spørsmål underveis!</span>
+          ]
+          </span>
+          </code></pre>
+        </section>
+
+        <!-- Resources -->
+
+        <section data-background="#ebf1ed">
+          <h3>Ressurser</h3>
+          <pre><code data-trim data-noescape>
+          $ curl 'https://tripletex.no/v2/#resources'
+          <span class="fragment">
+          [
+              <span class="nfragment">"<a href="https://tripletex.no/v2-docs/">Swagger</a>",</span>
+              <span class="nfragment">"<a href="https://tripletex.no/execute/docViewer?articleId=906&language=0">FAQ</a>",</span>
+              <span class="nfragment">"<a href="https://work-38068477.facebook.com/groups/573087313026175/">Workplace</a>",</span>
+              <span class="nfragment">"<a href="https://github.com/Tripletex/tripletex-api2">GitHub</a>"</span>
+          ]
+          </span>
+          </code></pre>
+        </section>
+
+        <section data-background="#ebf1ed">
+          <h4>Swagger</h4>
+          <a href="https://tripletex.no/v2-docs/" target="_blank"><img src="img/swagger-better.png" class="no-border" /></a>
+        </section>
+
+        <section data-background="#ebf1ed">
+          <h3><img src="img/beta-icon.png" class="no-border" height="50px" style="vertical-align: middle; margin: -7px 15px 0 0;"/>Beta-endepunkter</h3>
+          <img src="img/beta-endpoints.png" />
+        </section>
+
+        <section data-background="#ebf1ed">
+          <h4>FAQ</h4>
+          <a href="https://tripletex.no/execute/docViewer?articleId=906&language=0" target="_blank"><img src="img/faq-better.png" class="no-border" /></a>
+        </section>
+
+        <section data-background="#ebf1ed">
+          <h4>Workplace</h4>
+          <a href="https://work-38068477.facebook.com/groups/573087313026175/" target="_blank"><img src="img/workplace.png" /></a>
+        </section>
+
+        <section data-background="#ebf1ed">
+          <h4>GitHub</h4>
+          <a href="https://github.com/Tripletex/tripletex-api2" target="_blank"><img src="img/github.png" /></a>
+        </section>
+
+        <!-- Tips og triks -->
+
+        <section data-background="#0085ca">
+          <h3>Tips og triks</h3>
+          <pre><code data-trim data-noescape>
+          $ curl 'https://tripletex.no/v2/#tips-and-tricks'
+          <span class="fragment">
+          [
+              <span class="nfragment">"<span class="value">fields</span>",</span>
+              <span class="nfragment">"<span class="value">version</span>"</span>
+          ]
+          </span>
+          </code></pre>
+        </section>
+
+        <section data-background="#0085ca">
+          <h3>Fields</h3>
+          <pre><code data-trim data-noescape>
+          $ <span class="fragment">curl 'https://tripletex.no/v2/#fields'</span>
+          <span class="fragment">
+          [
+            <span class="fragment">"<span class="value">Velg hvilke felter man ønsker i retur</span>",</span>
+            <span class="fragment">"<span class="value">Også rekursivt for underobjekter</span>",</span>
+            <span class="fragment">"<span class="value">Kan brukes til å kombinere flere kall til ett</span>"</span>
+          ]
+          </span>
+          </code></pre>
+        </section>
+
+        <section data-background="#0085ca">
+          <h3>Eksempel</h3>
+          <p class="fragment">Hent ut alle prosjekter med e-postadressen på prosjektleder</p>
+        </section>
+
+        <section data-background="#0085ca">
+          <pre><code data-trim data-noescape class="language-bash">
+          $ <span class="fragment">curl 'https://tripletex.no/v2/<span class="value">project</span>'</span>
+          <span class="fragment">
+          {
+            "id": 1721973,
+            "version": 2,
+            "url": "tripletex.no/v2/project/1721973",
+            <span class="fragment highlight-yellow">"name": "Mitt prosjekt",</span>
+            "number": "43",
+            <span class="fragment highlight-yellow">"projectManager": {
+              "id": 170331,
+              "url": "tripletex.no/v2/employee/170331"
+            }</span>,
+            "startDate": "2013-03-01",
+            "endDate": null,
+            "customer": {
+              "id": 685902,
+              "url": "tripletex.no/v2/customer/685902"
+            },
+            "isClosed": false,
+            "projectCategory": null,
+            "displayNameFormat": "NAME_STANDARD"
+          }
+          </span>
+          </code></pre>
+        </section>
+
+        <section data-transition="slide none" data-background="#0085ca">
+          <img src="img/fields-ex1-project.png" />
+        </section>
+
+        <section data-transition="none none" data-background="#0085ca">
+          <img src="img/fields-ex1-project-nameproj.png" />
+        </section>
+
+        <section data-transition="none slide" data-background="#0085ca">
+          <img src="img/fields-ex1-project-employee.png" />
+        </section>
+
+        <section data-transition="slide none" data-background="#0085ca">
+          <pre><code data-trim data-noescape>
+          $ curl 'https://tripletex.no/v2/project' <span class="fragment">-G \
+                    -d <span class="value">fields='name,projectManager(email)'</span></span>
+          <span class="fragment">
+          {
+            "name": "Mitt prosjekt",
+            "projectManager": {
+              "email": "julian@tripletex.no"
+            }
+          }
+          </span>
+          </code></pre>
+        </section>
+
+        <section data-transition="none slide" data-background="#0085ca">
+          <pre><code data-trim data-noescape>
+          $ curl 'https://tripletex.no/v2/project' -G \
+                    -d fields='name,<span class="fragment highlight-yellow">projectManager(*)</span>'
+          <span class="fragment">
+          {
+            "name": "Mitt prosjekt",
+            "projectManager": {
+              "id": 845015,
+              "version": 12,
+              "url": "tripletex.no/v2/employee/845015",
+              "firstName": "Julian Ravn",
+              "lastName": "Thrap-Meyer",
+              "employeeNumber": "",
+              "dateOfBirth": "1814-05-17",
+              "email": "julian@tripletex.no",
+              "phoneNumberMobile": "",
+              "nationalIdentityNumber": "",
+              "dnumber": "",
+              "bankAccountNumber": "",
+              "address": {
+                "id": 9255168,
+                "url": "tripletex.no/v2/address/9255168"
+              },
+              "department": {
+                "id": 58985,
+                "url": "tripletex.no/v2/department/58985"
+              },
+              "employments": [ {
+                "id": 134984,
+                "url": "tripletex.no/v2/employee/employment/134984"
+              } ]
+            }
+          }
+          </span>
+          </code></pre>
+        </section>
+
+        <section data-background="#0085ca">
+          <h3>Version</h3>
+        </section>
+
+        <section data-background="#0085ca">
+          <h3>Eksempel</h3>
+          <p class="fragment">Øke prisen (med moms) på alle produker med 10%</p>
+
+          <ol class="fragment">
+            <li>Hent alle produkter: <span class="value"><code>GET /product</code></span></li>
+            <li>For hvert produkt, øk pris med 10%: <span class="value"><code>PUT /product/{id}</code></span></li>
+          </ol>
+
+        </section>
+
+        <section data-transition="slide none" data-background="#0085ca">
+          <pre><code data-trim data-noescape>
+          $ curl 'https://tripletex.no/v2/<span class="value">product</span>'
+          <span class="fragment">
+          {
+            <span class="fragment highlight-yellow">"id": 123</span>,
+            <span class="fragment highlight-yellow">"version": 10</span>,
+            "name": "Fantastisk produkt",
+            <span class="fragment highlight-yellow">"priceIncludingVatCurrency": 1000.0</span>,
+            …
+          }
+          </span>
+          </code></pre>
+        </section>
+
+        <section data-transition="none slide" data-background="#0085ca">
+          <pre><code data-trim data-noescape>
+          $ curl -X PUT 'https://tripletex.no/v2/product<span class="fragment highlight-yellow">/123</span>'<span class="fragment"> \
+              --data '{ <span class="fragment value">"priceIncludingVatCurrency": 1100.0</span> }'</span>
+          <span class="fragment">
+          # HTTP/1.1 200 OK
+          {
+            "id": 123,
+            "version": <span class="fragment highlight-red">12</span>, <span class="fragment"># oi, hvor ble det av 11?</span>
+            "name": "Fantastisk produkt",
+            "priceIncludingVatCurrency": 1100.0,
+            …
+          }
+          </span>
+          </code></pre>
+        </section>
+
+        <section data-background="#0085ca">
+          <img src="img/version-ex-gui-pc.png"class="no-border"/>
+        </section>
+
+        <section data-transition="none slide" data-background="#0085ca">
+          <pre><code data-trim data-noescape>
+          $ curl -X PUT 'https://tripletex.no/v2/product/123' \
+              --data '{ "priceIncludingVatCurrency": 1100.0,
+                        <span class="value">"version": 10</span> }'
+          <span class="fragment" data-fragment-index="1">
+          # HTTP/1.1 <span class="fragment highlight-yellow" data-fragment-index="2">409 Conflict</span>
+          {
+            "status" : 409,
+            "code" : 8000,
+            "message" : "<span class="fragment highlight-yellow" data-fragment-index="2">RevisionException</span>",
+            "requestId" : "862839bc-6ac6-4e60-b871-485c887f02fb"
+          }
+          </span>
+          </code></pre>
+        </section>
+
+        <section data-background="#0085ca">
+          <h3>Version</h3>
+          <pre><code data-trim data-noescape>
+          $ curl 'https://tripletex.no/v2/#version'
+          <span class="fragment">
+          [
+            <span class="fragment">"<span class="value">Unngår konflikter</span>",</span>
+            <span class="fragment">"<span class="value">Returnerer HTTP 409 i stedet for å overskrive</span>"</span>
+          ]
+          </span>
+          </code></pre>
+        </section>
+
+        <!-- Kommende funksjonalitet -->
+
+        <section data-background="#7fbe00">
+          <h3>Kommende funksjonalitet</h3>
+          <pre><code data-trim data-noescape>
+          $ <span class="fragment">curl 'https://tripletex.no/v2/#upcoming-features'</span>
+          <span class="fragment">
+          [
+              <span class="fragment">"<span class="value">checksum</span>",</span>
+              <span class="fragment">"<span class="value">webhooks</span>"</span>
+          ]
+          </span>
+          </code></pre>
+        </section>
+
+        <section data-background="#7fbe00">
+          <h3>Checksum</h3>
+          <pre><code data-trim data-noescape>
+          $ <span class="fragment">curl 'https://tripletex.no/v2/#checksum'</span>
+          <span class="fragment">
+          [
+              "<span class="value">Har datasettet endret seg?</span>"
+          ]
+          </span>
+          </code></pre>
+        </section>
+
+        <section data-background="#7fbe00">
+          <h3>Eksempel</h3>
+          <p class="fragment">Synkroniser alle posteringer inn i et annet system</p>
+        </section>
+
+        <section data-background="#7fbe00">
+          <pre><code data-trim data-noescape>
+          $ <span class="fragment">curl 'https://tripletex.no/v2/<span class="value">ledger/posting</span>' <span class="fragment">-G \
+              -d dateFrom="2018-03-01" -d dateTo="2018-04-01"</span></span>
+          <span class="fragment"># ...<span class="fragment">...</span><span class="fragment">...</span><span class="fragment">...</span></span>
+          <span class="fragment">{
+              <span class="fragment">mye data<span class="fragment">,
+              <span class="value">"checksum": "abc123"</span></span></span>
+          }
+          </span>
+          </code></pre>
+        </section>
+
+        <section data-background="#7fbe00">
+          <h3>Litt senere …</h3>
+          <pre><code data-trim data-noescape class="language-bash">
+          $ <span class="fragment">curl 'https://tripletex.no/v2/ledger/posting' -G \
+              -d dateFrom="2018-03-01" -d dateTo="2018-04-01" <span class="fragment">\
+              -d <span class="value">checksum="abc123"</span></span></span>
+            <span class="fragment">
+          # HTTP/1.1 <span class="fragment highlight-yellow">304 Not Modified</span>
+          {
+              # veldig kjapt, uten data
+          }
+          </span>
+          </code></pre>
+        </section>
+
+        <section data-background="#7fbe00">
+          <h3>Igjen litt senere …</h3>
+          <pre><code data-trim data-noescape class="language-bash">
+          $ <span class="fragment">curl 'https://tripletex.no/v2/ledger/posting' -G \
+              -d dateFrom="2018-03-01" -d dateTo="2018-04-01" \
+              -d checksum="abc123"</span>
+          <span class="fragment">
+          <span class="fragment"># ...<span class="fragment">...</span><span class="fragment">...</span><span class="fragment">...</span></span>
+          <span class="fragment">{
+              <span class="fragment">mye data<span class="fragment">,
+              <span class="value">"checksum": "def456"</span></span></span>
+          }
+          </span>
+          </code></pre>
+        </section>
+
+        <section data-background="#7fbe00">
+          <h3>Når?</h3>
+          <p class="fragment">Checksum er mulig å teste <b>i dag</b></p>
+          <p class="fragment">Ta kontakt!</p>
+        </section>
+
+        <section data-background="#7fbe00">
+          <h3>Webhooks</h3>
+          <pre><code data-trim data-noescape>
+          $ <span class="fragment">curl 'https://tripletex.no/v2/#webhooks'</span>
+          <span class="fragment">
+          [
+              <span class="fragment">"<span class="value">Checksum 2.0</span>",</span>
+              <span class="fragment">"<span class="value">Få beskjed når ting skjer – helt automatisk!</span>"</span>
+          ]
+          </span>
+          </code></pre>
+        </section>
+
+        <section data-background="#7fbe00">
+          <h3>Eksempel</h3>
+          <p class="fragment">Synkroniser alle posteringer inn i et annet system (igjen)</p>
+        </section>
+
+        <section data-background="#7fbe00">
+          <h3>Sett opp webhook-abonnement</h3>
+          <pre><code data-trim data-noescape class="language-bash">
+          $ <span class="fragment">curl 'https://tripletex.no/v2/<span class="value">event/subscription</span>' <span class="fragment">\
+              <span class="value">-X POST</span> --data '{
+                <span class="fragment">"eventKey": "<span class="value">Posting.CREATE</span>"</span><span class="fragment">,
+                "callback": "<span class="value">https://myapp.example/webhook</span>"</span>
+              }'
+          </span></span>
+          </code></pre>
+        </section>
+
+        <section data-background="#7fbe00">
+          <h3>Start webserver</h3>
+          <pre><code data-trim data-noescape class="language-bash">
+          $ <span class="fragment">./start-webhook-server</span>
+          <span class="fragment"># Listening to <span class="value">https://myapp.example/webhook</span> <span class="fragment">...</span><span class="fragment">...</span><span class="fragment">...</span></span>
+          <span class="fragment"># Data received!</span>
+          <span class="fragment">{
+            "id": 253161,
+            "number": "412",
+            "description": "Eksempelpostering"
+          }
+          </span>
+          </code></pre>
+        </section>
+
+        <section data-background="#7fbe00">
+          <h3>Hva kan jeg abonnere på?</h3>
+
+          <ul class="fragment" data-fragment-index="1">
+            <li class="fragment" data-fragment-index="2">CREATE</li>
+            <li class="fragment" data-fragment-index="2">UPDATE</li>
+            <li class="fragment" data-fragment-index="2">DELETE</li>
+            <li class="fragment" data-fragment-index="3">Andre ting? <span class="fragment">Kom gjerne med forslag!</span></li>
+          </ul>
+        </section>
+
+        <section data-background="#7fbe00">
+          <h3>Når?</h3>
+          <p class="fragment">Om ikke altfor lenge!</p>
+        </section>
+
+        <section data-background="#7dc6c7">
+          <h3>Oppsummering</h3>
+          <ul class="fragment">
+            <li class="fragment">Swagger, GitHub, FAQ, Workplace</li>
+            <li class="fragment">Fields, version</li>
+            <li class="fragment">Checksum, webhooks</li>
+          </ul>
+          <p class="fragment">Presentasjonen ligger på GitHub!</p>
+
+          JULIAN HUSK Å LEGGE DEN UT PÅ GITHUB
+
+        </section>
+
+        <section data-background="#7dc6c7">
+          <h3>Takk for meg! :-)</h3>
+        </section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+    // More info about config & dependencies:
+// - https://github.com/hakimel/reveal.js#configuration
+// - https://github.com/hakimel/reveal.js#dependencies
+Reveal.initialize({
+  history: true,
+  width: '100%',
+  height: '100%',
+  margin: 0,
+  minScale: 1,
+  maxScale: 1,
+  dependencies: [
+    { src: 'plugin/markdown/marked.js' },
+    { src: 'plugin/markdown/markdown.js' },
+    { src: 'plugin/notes/notes.js', async: true },
+    {
+      src: 'plugin/highlight/highlight.js',
+      async: true,
+      callback: function() {
+        hljs.initHighlightingOnLoad();
+      }
+    }
+  ]
+});
+</script>
+    <script src="http://localhost:35729/livereload.js"></script>
+  </body>
+</html>
