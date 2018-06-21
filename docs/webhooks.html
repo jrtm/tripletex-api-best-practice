@@ -327,7 +327,7 @@ document.getElementsByTagName('head')[0].appendChild(link);
 
         <section data-background="#7dc6c7" data-transition="none">
           <h2>Minimum viable product (MVP)</h2>
-          <pre class="fragment" data-fragment-index="0"><code data-trim data-noescape class="language-bash">
+          <pre class="afragment" data-fragment-index="0"><code data-trim data-noescape class="language-bash">
           $ curl 'https://tripletex.no/api/mvp'
           <span class="fragment" data-fragment-index="1">
           [
@@ -363,7 +363,7 @@ document.getElementsByTagName('head')[0].appendChild(link);
           [
               <span class="fragment" data-fragment-index="1">"<span class="value">Number of expected webhooks</span>",</span>
               <span class="fragment" data-fragment-index="2">"<span class="value">Expected system load</span>",</span>
-              <span class="fragment" data-fragment-index="3">"<span class="value">Speed</span>"</span>
+              <span class="fragment" data-fragment-index="3">"<span class="value">Speed</span>",</span>
               <span class="fragment" data-fragment-index="4">"<span class="value">Usage patterns</span>"</span>
               <span class="fragment" data-fragment-index="5"># everything in production, of course</span>
           ]
@@ -378,7 +378,7 @@ document.getElementsByTagName('head')[0].appendChild(link);
           $ curl 'https://tripletex.no/api/<span class="value">business-cases</span>'
           <span class="fragment" data-fragment-index="1">
           [
-              <span class="fragment" data-fragment-index="1">"<span class="value">Data synchronization</span>",</span>
+              <span class="fragment" data-fragment-index="1">"<span class="value">Real-time data synchronization</span>",</span>
               <span class="fragment" data-fragment-index="2">"<span class="value">Push notifications to end-users</span>"</span>
           ]
           </span>
@@ -435,6 +435,39 @@ document.getElementsByTagName('head')[0].appendChild(link);
         <section data-background="#7dc6c7" data-transition="none"><h4>Data synchronization</h4><img src="img/webhooks-technical/part10.svg" class="no-border" width="900px" /></section>
         <section data-background="#7dc6c7" data-transition="none"><h4>Data synchronization</h4><img src="img/webhooks-technical/part11.svg" class="no-border" width="900px" /></section>
 
+        <section data-background="#7fbe00" data-transition="none">
+          <h2>Subscription</h2>
+
+          <pre class="afragment" data-fragment-index="0"><code data-trim data-noescape class="language-bash">
+          $ curl 'https://tripletex.no/api/mvp/webhook/<span class="value">subscription</span>'
+          <span class="afragment" data-fragment-index="1">
+          {
+              <span class="fragment" data-fragment-index="1">"<span class="value">event</span>": "order.update",</span>
+              <span class="fragment" data-fragment-index="2">"<span class="value">targetUrl</span>": "https://my.webhook/callback",</span>
+              <span class="fragment" data-fragment-index="3">"<span class="value">fields</span>": "number,orderLines(count,description)"</span>
+          }
+          </span>
+          </code></pre>
+        </section>
+
+        <section data-background="#7fbe00" data-transition="none">
+          <h2>Webhook payload</h2>
+
+          <pre class="afragment" data-fragment-index="0"><code data-trim data-noescape class="language-bash">
+          $ curl 'https://tripletex.no/api/mvp/webhook/<span class="value">payload</span>'
+          <span class="afragment" data-fragment-index="1">
+          {   <span class="fragment" data-fragment-index="1">"<span class="value">event</span>": "order.update",</span>
+              <span class="fragment" data-fragment-index="3">"<span class="value">value</span>": {
+                "<span class="value">number</span>": "567",
+                "<span class="value">orderLines</span>": [
+                  { "<span class="value">count</span>": 1, "<span class="value">description</span>": "T-shirt"},
+                  { "<span class="value">count</span>": 5, "<span class="value">description</span>": "Hat"},
+                ] } }</span>
+          </span>
+          </code></pre>
+        </section>
+
+
         <section data-background="#7dc6c7" data-transition="none">
           <h2>Summary</h2>
 
@@ -443,8 +476,8 @@ document.getElementsByTagName('head')[0].appendChild(link);
           <span class="afragment" data-fragment-index="1">
           [
               <span class="afragment" data-fragment-index="1">"<span class="value">Separation between core and domain</span>",</span>
-              <span class="afragment" data-fragment-index="1">"<span class="value">Minimum viable product</span>",</span>
-              <span class="afragment" data-fragment-index="1">"<span class="value">Data is important (measure all the things)</span>"</span>
+              <span class="afragment" data-fragment-index="2">"<span class="value">Minimum viable product</span>",</span>
+              <span class="afragment" data-fragment-index="3">"<span class="value">Data is important (measure all the things)</span>"</span>
           ]
           </span>
           </code></pre>
