@@ -1,0 +1,495 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Webhooks – API Guild June 2018</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <style>
+
+    section img.no-border {
+      background:none;
+      border:none;
+      box-shadow:none;
+    }
+
+    .value span, .value {
+      color: #efef8f !important;
+    }
+
+    code a span {
+      text-decoration: underline;
+      color: #efef8f !important;
+    }
+
+    .reveal section pre code {
+      border-radius: 10px;
+      padding: 20px 10px;
+      font-size: 1.8em;
+      line-height: 1.1em;
+    }
+    .reveal section pre {
+      border-radius: 10px;
+    }
+
+    .reveal .slides section .fragment.highlight-red.visible span {
+      color: #ff2c2d;
+    }
+
+    .reveal .slides section .fragment.highlight-yellow {
+      opacity: 1;
+      visibility: inherit; }
+    .reveal .slides section .fragment.highlight-yellow.visible span {
+      color: #efef9f;
+    }
+
+    #team-overview {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    #team-overview [data-team] {
+      display: inline-block;
+      position: absolute;
+    }
+    #team-overview [data-team] > img {
+      width: 250px
+    }
+    #team-overview [data-team="a-team"] {
+      bottom: 10%;
+      left: 30%;
+    }
+    #team-overview [data-team="a-team"] .love-box {
+      top: 110px;
+    }
+    #team-overview [data-team="bond"] {
+      bottom: 10%;
+      right: 30%;
+    }
+    #team-overview [data-team="bond"] .name {
+      margin-left: 60px;
+    }
+    #team-overview [data-team="krr"] {
+      top: 5%;
+      left: 20%;
+    }
+    #team-overview [data-team="tsk"] {
+      top: 5%;
+      left: 44%;
+    }
+    #team-overview [data-team="angry-nerds"] {
+      top: 5%;
+      right: 20%;
+    }
+    #team-overview .name {
+      text-align: center;
+      display: block;
+      text-transform: uppercase;
+      font-family: monospace;
+    }
+
+    .love-box {
+      position: absolute;
+      display: block;
+      border: 1px solid black !important;
+      padding: 5px 15px !important;
+      border-radius: 30px;
+    }
+
+    .heart {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      background: url('img/hearts.ico') !important;
+      border:none !important;
+      box-shadow:none !important;
+      position: absolute;
+      top: -40px;
+      left: -15px;
+    }
+
+    .love-box {
+      left: 0;
+      top: 70px;
+      background-color: white;
+    }
+
+    .endpoint-box[data-endpoint="invoice"] {
+      top: 150px;
+    }
+    .endpoint-box[data-endpoint="project"] {
+      top: 200px;
+    }
+
+    section .footer {
+      font-size: .8em;
+    }
+
+    section .footer a {
+      color: blue;
+    }
+
+    .inline-image {
+      margin: 0 !important;
+      padding: 0 !important;
+      vertical-align: bottom;
+      position: relative;
+    }
+
+    .front-header span {
+      vertical-align: bottom;
+      position: relative;
+      bottom: -7px;
+      margin-right: 4px;
+      text-transform: none;
+    }
+
+    .front-header img {
+      vertical-align: bottom;
+    }
+
+    .front-header div {
+      display: inline-block;
+      position: relative;
+      left: 20px;
+    }
+
+    .slides {
+      background-image: url('img/tripletex-logo.svg');
+      background-position: bottom 20px left 20px;
+      background-size: 200px;
+      background-repeat: no-repeat;
+    }
+
+    #history p {
+      margin-bottom: 50px;
+    }
+
+    #history p span {
+      text-align: right;
+      display: inline-block;
+      width: 90%;
+    }
+
+    #history .tech {
+      font-weight: bold;
+    }
+
+    #history p b {
+      position: absolute;
+    }
+
+    #team-overview [data-team] .julian {
+      width: 50px;
+    }
+
+    .julian {
+      position: absolute;
+      left: 143px;
+      top: 15px;
+    }
+
+    .align-middle {
+      position: absolute;
+      top: 45%;
+      width: 100%;
+      font-size: 1.3em !important;
+      text-align: center;
+    }
+
+    #delivering-webhooks .lefty,
+    #delivering-webhooks .righty {
+      display: inline-block;
+      position: relative;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    #delivering-webhooks .subtext {
+      text-transform: none;
+      font-style: italic;
+    }
+
+
+    </style>
+
+    <!-- Printing and PDF exports -->
+    <script>
+    var link = document.createElement('link');
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match(/print-pdf/gi)
+  ? 'css/print/pdf.css'
+  : 'css/print/paper.css';
+document.getElementsByTagName('head')[0].appendChild(link);
+</script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <!-- Introduction -->
+
+        <section data-background="#7dc6c7" data-transition="none">
+          <h2 class="front-header"><div><span>Webhooks in </span><img src="img/tripletex-logo.svg" class="no-border inline-image" width="300px"/></div></h2>
+          <img src="img/webhooks-qr-code.png" class="no-border" width="300px"/>
+
+          <div class="footer">
+            <p>Julian Ravn Thrap-Meyer</p>
+            <p>Tech lead API / <a href="mailto:julian@tripletex.no">julian@tripletex.no</a></p>
+          </div>
+        </section>
+
+        <section data-background="#ebf1ed" data-transition="none">
+          <h3>Table of contents</h3>
+          <pre><code data-trim data-noescape class="language-bash">
+          $ curl 'https://tripletex.no/api/table-of-contents'
+          <span class="fragment">
+          [
+              <span class="fragment">"<span class="value">Development process in Tripletex</span>",</span>
+              <span class="fragment">"<span class="value">Business cases for webhooks</span>",</span>
+              <span class="fragment">"<span class="value">Technical details</span>"</span>
+              <span class="fragment"># Feel free to ask me follow-up questions later!</span>
+          ]
+          </span>
+          </code></pre>
+        </section>
+
+        <section data-background="#ebf1ed" data-transition="none" id="history">
+          <h2>History</h2>
+
+          <pre><code data-trim data-noescape class="language-bash">
+          $ curl 'https://tripletex.no/api/history'
+          <span class="fragment" data-fragment-index="1">
+          [
+              <span class="fragment" data-fragment-index="1">"<span class="value">v1.0</span>": { "year": <span class="value">2011</span>, "tech": "<span class="value">JSON-RPC</span>" },</span>
+              <span class="fragment" data-fragment-index="2">"<span class="value">v2.0</span>": { "year": <span class="value">2017</span>, "tech": "<span class="value">REST</span>" },</span>
+              <span class="fragment" data-fragment-index="3">"<span class="value">v2.5</span>": { "year": <span class="value">2018</span>, "tech": "<span class="value">REST + Webhooks</span>" }</span>
+          ]
+          </span>
+          </code></pre>
+        </section>
+
+        <section data-background="#0085ca" data-transition="none">
+          <h2>Delivery process</h2>
+        </section>
+
+        <section data-background="#7dc6c7" id="team-overview" data-transition="none">
+          <div data-team="a-team" class="fragment" data-fragment-index="1">
+            <div class="love-box fragment" data-fragment-index="5"><img class="heart" src="img/hearts.png" /> API Core</div>
+            <img src="img/julian.png" class="no-border julian fragment" data-fragment-index="4"/>
+            <img src="img/teams/ateam.png" class="no-border" />
+            <span class="name">Core</span>
+          </div>
+          <div data-team="bond" class="fragment" data-fragment-index="1">
+            <img src="img/teams/bond.png" class="no-border" />
+            <span class="name">Infrastructure</span>
+          </div>
+
+          <h2 class="align-middle">The development department</h2>
+
+          <div data-team="krr" class="fragment" data-fragment-index="2">
+            <div class="love-box fragment" data-endpoint="invoice" data-fragment-index="6"><img class="heart" src="img/hearts.png" /> Invoice API</div>
+            <img src="img/teams/krr.png" class="no-border" />
+            <span class="name">Domain</span>
+          </div>
+          <div data-team="tsk" class="fragment" data-fragment-index="2">
+            <div class="love-box fragment" data-endpoint="project" data-fragment-index="6"><img class="heart" src="img/hearts.png" /> Project API</div>
+            <img src="img/teams/tsk.png" class="no-border"/>
+            <span class="name">Domain</span>
+          </div>
+          <div data-team="angry-nerds" class="fragment" data-fragment-index="3">
+            <img src="img/teams/angrynerds.png" class="no-border"/>
+            <span class="name">Mobile</span>
+          </div>
+        </section>
+
+        <section data-background="#7fbe00" data-transition="none" id="delivering-webhooks">
+          <h2>Delivering webhooks</h2>
+          <span class="lefty fragment" data-fragment-index="1">
+            Business value<br />
+            <span class="fragment subtext" data-fragment-index="3">(New value)</span>
+          </span>
+          <img class="no-border" src="img/webhook.png" width="20%"/>
+          <span class="righty fragment" data-fragment-index="2">
+            Delivery risk<br />
+            <span class="fragment subtext" data-fragment-index="3">(Existing value)</span>
+          </span>
+        </section>
+
+        <section data-background="#7dc6c7" data-transition="none">
+          <h2>Minimum viable product (MVP)</h2>
+          <pre class="fragment" data-fragment-index="0"><code data-trim data-noescape class="language-bash">
+          $ curl 'https://tripletex.no/api/mvp'
+          <span class="fragment" data-fragment-index="1">
+          [
+              <span class="fragment" data-fragment-index="1">"<span class="value">Quickly try out new concepts</span>",</span>
+              <span class="fragment" data-fragment-index="2">"<span class="value">Fail as soon as possible</span>"</span>
+              <span class="fragment" data-fragment-index="3"># Weeks, not months</span>
+              <span class="fragment" data-fragment-index="4"># MVPs are not done!</span>
+          ]
+          </span>
+          </code></pre>
+        </section>
+
+        <section data-background="#0085ca" data-transition="none">
+          <h2>Webhook MVP</h2>
+          <pre><code data-trim data-noescape class="language-bash">
+          $ curl 'https://tripletex.no/api/mvp/<span class="value">webhook</span>'
+          <span class="fragment" data-fragment-index="1">
+          [
+              <span class="fragment" data-fragment-index="1">"<span class="value">Few select webhook event types at first</span>",</span>
+              <span class="fragment" data-fragment-index="2">"<span class="value">Clear interfaces between components</span>",</span>
+              <span class="fragment" data-fragment-index="3">"<span class="value">Kill switches</span>",</span>
+              <span class="fragment" data-fragment-index="4">"<span class="value">Measuring all the way, from start to finish</span>"</span>
+          ]
+          </span>
+          </code></pre>
+        </section>
+
+        <section data-background-image="img/grafana-screens.jpg" data-transition="none">
+          <h2>Measuring</h2>
+          <pre class="afragment" data-fragment-index="0"><code data-trim data-noescape class="language-bash">
+          $ curl 'https://tripletex.no/api/mvp/webhook/<span class="value">measuring</span>'
+          <span class="fragment" data-fragment-index="1">
+          [
+              <span class="fragment" data-fragment-index="1">"<span class="value">Number of expected webhooks</span>",</span>
+              <span class="fragment" data-fragment-index="2">"<span class="value">Expected system load</span>",</span>
+              <span class="fragment" data-fragment-index="3">"<span class="value">Speed</span>"</span>
+              <span class="fragment" data-fragment-index="4">"<span class="value">Usage patterns</span>"</span>
+              <span class="fragment" data-fragment-index="5"># everything in production, of course</span>
+          ]
+          </span>
+          </code></pre>
+        </section>
+
+        <section data-background="#7dc6c7" data-transition="none">
+          <h2>Business cases</h2>
+
+          <pre class="afragment" data-fragment-index="0"><code data-trim data-noescape class="language-bash">
+          $ curl 'https://tripletex.no/api/<span class="value">business-cases</span>'
+          <span class="fragment" data-fragment-index="1">
+          [
+              <span class="fragment" data-fragment-index="1">"<span class="value">Data synchronization</span>",</span>
+              <span class="fragment" data-fragment-index="2">"<span class="value">Push notifications to end-users</span>"</span>
+          ]
+          </span>
+          </code></pre>
+        </section>
+
+        <section data-background="#7dc6c7" data-transition="none"><h4>Data synchronization</h4><img src="img/wh-flow/wh-1.svg" class="no-border" width="900px" /></section>
+        <section data-background="#7dc6c7" data-transition="none"><h4>Data synchronization</h4><img src="img/wh-flow/wh-2.svg" class="no-border" width="900px" /></section>
+        <section data-background="#7dc6c7" data-transition="none"><h4>Data synchronization</h4><img src="img/wh-flow/wh-3.svg" class="no-border" width="900px" /></section>
+        <section data-background="#7dc6c7" data-transition="none"><h4>Data synchronization</h4><img src="img/wh-flow/wh-4.svg" class="no-border" width="900px" /></section>
+        <section data-background="#7dc6c7" data-transition="none"><h4>Data synchronization</h4><img src="img/wh-flow/wh-5.svg" class="no-border" width="900px" /></section>
+        <section data-background="#7dc6c7" data-transition="none"><h4>Data synchronization</h4><img src="img/wh-flow/wh-6.svg" class="no-border" width="900px" /></section>
+        <section data-background="#7dc6c7" data-transition="none"><h4>Data synchronization</h4><img src="img/wh-flow/wh-7.svg" class="no-border" width="900px" /></section>
+
+        <section data-background="#0085ca" data-transition="none">
+          <h2>Webhook types</h2>
+
+          <pre class="afragment" data-fragment-index="0"><code data-trim data-noescape class="language-bash">
+          $ curl 'https://tripletex.no/api/mvp/webhook/<span class="value">types</span>'
+          <span class="fragment" data-fragment-index="1">
+          [
+              <span class="fragment" data-fragment-index="1">"<span class="value">Database events</span>",</span> <span class="fragment" data-fragment-index="2"># CREATE, UPDATE, DELETE</span>
+              <span class="fragment" data-fragment-index="1">"<span class="value">Custom events</span>"</span> <span class="fragment" data-fragment-index="3"># e.g. invoice was charged</span>
+          ]
+          </span>
+          </code></pre>
+        </section>
+
+        <section data-background="#7fbe00" data-transition="none">
+          <h2>Technical details</h2>
+
+          <pre class="afragment" data-fragment-index="0"><code data-trim data-noescape class="language-bash">
+          $ curl 'https://tripletex.no/api/mvp/webhook/<span class="value">technical</span>'
+          <span class="afragment" data-fragment-index="1">
+          [
+              <span class="afragment" data-fragment-index="1">"<span class="value">Subscription API</span>",</span>
+              <span class="afragment" data-fragment-index="2">"<span class="value">Event system (message queue)</span>",</span>
+              <span class="afragment" data-fragment-index="3">"<span class="value">Database layer publishing events</span>",</span>
+              <span class="afragment" data-fragment-index="4">"<span class="value">Worker sending out webhook calls based on events</span>"</span>
+          ]
+          </span>
+          </code></pre>
+        </section>
+
+        <section data-background="#7dc6c7" data-transition="none"><h4>Data synchronization</h4><img src="img/webhooks-technical/part1.svg" class="no-border" width="900px" /></section>
+        <section data-background="#7dc6c7" data-transition="none"><h4>Data synchronization</h4><img src="img/webhooks-technical/part2.svg" class="no-border" width="900px" /></section>
+        <section data-background="#7dc6c7" data-transition="none"><h4>Data synchronization</h4><img src="img/webhooks-technical/part3.svg" class="no-border" width="900px" /></section>
+        <section data-background="#7dc6c7" data-transition="none"><h4>Data synchronization</h4><img src="img/webhooks-technical/part4.svg" class="no-border" width="900px" /></section>
+        <section data-background="#7dc6c7" data-transition="none"><h4>Data synchronization</h4><img src="img/webhooks-technical/part5.svg" class="no-border" width="900px" /></section>
+        <section data-background="#7dc6c7" data-transition="none"><h4>Data synchronization</h4><img src="img/webhooks-technical/part6.svg" class="no-border" width="900px" /></section>
+        <section data-background="#7dc6c7" data-transition="none"><h4>Data synchronization</h4><img src="img/webhooks-technical/part7.svg" class="no-border" width="900px" /></section>
+        <section data-background="#7dc6c7" data-transition="none"><h4>Data synchronization</h4><img src="img/webhooks-technical/part8.svg" class="no-border" width="900px" /></section>
+        <section data-background="#7dc6c7" data-transition="none"><h4>Data synchronization</h4><img src="img/webhooks-technical/part9.svg" class="no-border" width="900px" /></section>
+        <section data-background="#7dc6c7" data-transition="none"><h4>Data synchronization</h4><img src="img/webhooks-technical/part10.svg" class="no-border" width="900px" /></section>
+        <section data-background="#7dc6c7" data-transition="none"><h4>Data synchronization</h4><img src="img/webhooks-technical/part11.svg" class="no-border" width="900px" /></section>
+
+        <section data-background="#7dc6c7" data-transition="none">
+          <h2>Summary</h2>
+
+          <pre class="afragment" data-fragment-index="0"><code data-trim data-noescape class="language-bash">
+          $ curl 'https://tripletex.no/api/<span class="value">summary</span>'
+          <span class="afragment" data-fragment-index="1">
+          [
+              <span class="afragment" data-fragment-index="1">"<span class="value">Separation between core and domain</span>",</span>
+              <span class="afragment" data-fragment-index="1">"<span class="value">Minimum viable product</span>",</span>
+              <span class="afragment" data-fragment-index="1">"<span class="value">Data is important (measure all the things)</span>"</span>
+          ]
+          </span>
+          </code></pre>
+        </section>
+
+        <section data-background="#7dc6c7" data-transition="none">
+          <h2 class="front-header">Thank you!</h2>
+          <img src="img/webhooks-qr-code.png" class="no-border" width="300px"/>
+
+          <div class="footer">
+            <p>Contact me if you have any questions!</p>
+            <p><a href="mailto:julian@tripletex.no">julian@tripletex.no</a></p>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+    // More info about config & dependencies:
+// - https://github.com/hakimel/reveal.js#configuration
+// - https://github.com/hakimel/reveal.js#dependencies
+Reveal.initialize({
+  history: true,
+  width: '100%',
+  height: '100%',
+  margin: 0,
+  minScale: 1,
+  maxScale: 1,
+  dependencies: [
+    { src: 'plugin/markdown/marked.js' },
+    { src: 'plugin/markdown/markdown.js' },
+    { src: 'plugin/notes/notes.js', async: true },
+    {
+      src: 'plugin/highlight/highlight.js',
+      async: true,
+      callback: function() {
+        hljs.initHighlightingOnLoad();
+      }
+    }
+  ]
+});
+</script>
+    <script src="http://localhost:35729/livereload.js"></script>
+  </body>
+</html>
