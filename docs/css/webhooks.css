@@ -183,12 +183,24 @@ section .footer a {
   top: 15px;
 }
 
+.julian-arrow {
+  position: absolute;
+  left: 170px;
+  top: -110px;
+  width: 180px !important;
+}
+
 .align-middle {
   position: absolute;
   top: 45%;
   width: 100%;
   font-size: 1.3em !important;
   text-align: center;
+}
+
+.empty-code {
+  display: table;
+  content: ' ';
 }
 
 #delivering-webhooks .lefty,

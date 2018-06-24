@@ -77,6 +77,7 @@ document.getElementsByTagName('head')[0].appendChild(link);
         <section data-background="#7dc6c7" id="team-overview" data-transition="none">
           <div data-team="a-team" class="fragment" data-fragment-index="1">
             <div class="love-box fragment" data-fragment-index="5"><img class="heart" src="img/hearts.png" /> API Core</div>
+            <img src="img/julian-arrow.png" class="no-border julian-arrow fragment" data-fragment-index="4" />
             <img src="img/julian.png" class="no-border julian fragment" data-fragment-index="4"/>
             <img src="img/teams/ateam.png" class="no-border" />
             <span class="name">Core</span>
@@ -240,8 +241,11 @@ document.getElementsByTagName('head')[0].appendChild(link);
         <section data-background="#7dc6c7" data-transition="none"><h4>Data synchronization</h4><img src="img/webhooks-technical/part10.svg" class="no-border" width="900px" /></section>
         <section data-background="#7dc6c7" data-transition="none"><h4>Data synchronization</h4><img src="img/webhooks-technical/part11.svg" class="no-border" width="900px" /></section>
 
+        <section data-background="#7fbe00" data-transition="none"><h2>Subscription API</h2><img src="img/browser/event-subscription.png" class="no-border" width="60%"/></section>
+        <section data-background="#7fbe00" data-transition="none"><h2>Subscription API</h2><img src="img/browser/event-subscriptions-post.png" class="no-border" width="60%"/></section>
+
         <section data-background="#7fbe00" data-transition="none">
-          <h2>Subscription</h2>
+          <h2>Subscription example</h2>
 
           <pre class="afragment" data-fragment-index="0"><code data-trim data-noescape class="language-bash">
           $ curl 'https://tripletex.no/api/mvp/webhook/<span class="value">subscription</span>'
@@ -255,19 +259,22 @@ document.getElementsByTagName('head')[0].appendChild(link);
           </code></pre>
         </section>
 
+        <section data-background="#7fbe00" data-transition="none"><h2>Fields ("GraphQL")</h2><code class="empty-code">&nbsp;</code><img src="img/browser/order-orderlines.png" width="60%" class="no-border" /></section>
+        <section data-background="#7fbe00" data-transition="none"><h2>Fields ("GraphQL")</h2><code>fields=<span class="value">number</span>,<span class="value">orderLines</span>(<span class="value">description</span>,<span class="value">count</span>)</code><img src="img/browser/order-orderlines-hl.png" width="60%" class="no-border" /></section>
+
         <section data-background="#7fbe00" data-transition="none">
           <h2>Webhook payload</h2>
 
           <pre class="afragment" data-fragment-index="0"><code data-trim data-noescape class="language-bash">
           $ curl 'https://tripletex.no/api/mvp/webhook/<span class="value">payload</span>'
-          <span class="afragment" data-fragment-index="1">
-          {   <span class="fragment" data-fragment-index="1">"<span class="value">event</span>": "order.update",</span>
-              <span class="fragment" data-fragment-index="3">"<span class="value">value</span>": {
-                "<span class="value">number</span>": "567",
-                "<span class="value">orderLines</span>": [
-                  { "<span class="value">count</span>": 1, "<span class="value">description</span>": "T-shirt"},
-                  { "<span class="value">count</span>": 5, "<span class="value">description</span>": "Hat"},
-                ] } }</span>
+          <span class="afragment">
+            <span>"value": {
+              <span class="fragment" data-fragment-index="1"><span class="value">number</span>": "567",</span>
+              <span class="fragment" data-fragment-index="2"><span class="value">orderLines</span>": [
+                <span class="fragment" data-fragment-index="3">{ "<span class="value">count</span>": 1, "<span class="value">description</span>": "T-shirt"},</span>
+                <span class="fragment" data-fragment-index="4">{ "<span class="value">count</span>": 5, "<span class="value">description</span>": "Hat"},</span>
+              ]</span>
+            }</span>
           </span>
           </code></pre>
         </section>
@@ -283,6 +290,7 @@ document.getElementsByTagName('head')[0].appendChild(link);
               <span class="fragment" data-fragment-index="1">"<span class="value">Separation between core and domain</span>",</span>
               <span class="fragment" data-fragment-index="2">"<span class="value">Minimum viable product</span>",</span>
               <span class="fragment" data-fragment-index="3">"<span class="value">Data is important (measure all the things)</span>"</span>
+              <span class="fragment" data-fragment-index="4">"<span class="value">Consistent API</span>"</span>
           ]
           </span>
           </code></pre>
