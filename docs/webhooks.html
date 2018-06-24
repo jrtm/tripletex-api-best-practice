@@ -11,215 +11,7 @@
 
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
-
-    <style>
-
-    section img.no-border {
-      background:none;
-      border:none;
-      box-shadow:none;
-    }
-
-    .value span, .value {
-      color: #efef8f !important;
-    }
-
-    code a span {
-      text-decoration: underline;
-      color: #efef8f !important;
-    }
-
-    .reveal section pre code {
-      border-radius: 10px;
-      padding: 20px 10px;
-      font-size: 1.8em;
-      line-height: 1.1em;
-    }
-    .reveal section pre {
-      border-radius: 10px;
-    }
-
-    .reveal .slides section .fragment.highlight-red.visible span {
-      color: #ff2c2d;
-    }
-
-    .reveal .slides section .fragment.highlight-yellow {
-      opacity: 1;
-      visibility: inherit; }
-    .reveal .slides section .fragment.highlight-yellow.visible span {
-      color: #efef9f;
-    }
-
-    #team-overview {
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
-
-    #team-overview [data-team] {
-      display: inline-block;
-      position: absolute;
-    }
-    #team-overview [data-team] > img {
-      width: 250px
-    }
-    #team-overview [data-team="a-team"] {
-      bottom: 10%;
-      left: 30%;
-    }
-    #team-overview [data-team="a-team"] .love-box {
-      top: 110px;
-    }
-    #team-overview [data-team="bond"] {
-      bottom: 10%;
-      right: 30%;
-    }
-    #team-overview [data-team="bond"] .name {
-      margin-left: 60px;
-    }
-    #team-overview [data-team="krr"] {
-      top: 5%;
-      left: 20%;
-    }
-    #team-overview [data-team="tsk"] {
-      top: 5%;
-      left: 44%;
-    }
-    #team-overview [data-team="angry-nerds"] {
-      top: 5%;
-      right: 20%;
-    }
-    #team-overview .name {
-      text-align: center;
-      display: block;
-      text-transform: uppercase;
-      font-family: monospace;
-    }
-
-    .love-box {
-      position: absolute;
-      display: block;
-      border: 1px solid black !important;
-      padding: 5px 15px !important;
-      border-radius: 30px;
-    }
-
-    .heart {
-      display: inline-block;
-      width: 50px;
-      height: 50px;
-      background: url('img/hearts.ico') !important;
-      border:none !important;
-      box-shadow:none !important;
-      position: absolute;
-      top: -40px;
-      left: -15px;
-    }
-
-    .love-box {
-      left: 0;
-      top: 70px;
-      background-color: white;
-    }
-
-    .endpoint-box[data-endpoint="invoice"] {
-      top: 150px;
-    }
-    .endpoint-box[data-endpoint="project"] {
-      top: 200px;
-    }
-
-    section .footer {
-      font-size: .8em;
-    }
-
-    section .footer a {
-      color: blue;
-    }
-
-    .inline-image {
-      margin: 0 !important;
-      padding: 0 !important;
-      vertical-align: bottom;
-      position: relative;
-    }
-
-    .front-header span {
-      vertical-align: bottom;
-      position: relative;
-      bottom: -7px;
-      margin-right: 4px;
-      text-transform: none;
-    }
-
-    .front-header img {
-      vertical-align: bottom;
-    }
-
-    .front-header div {
-      display: inline-block;
-      position: relative;
-      left: 20px;
-    }
-
-    .slides {
-      background-image: url('img/tripletex-logo.svg');
-      background-position: bottom 20px left 20px;
-      background-size: 200px;
-      background-repeat: no-repeat;
-    }
-
-    #history p {
-      margin-bottom: 50px;
-    }
-
-    #history p span {
-      text-align: right;
-      display: inline-block;
-      width: 90%;
-    }
-
-    #history .tech {
-      font-weight: bold;
-    }
-
-    #history p b {
-      position: absolute;
-    }
-
-    #team-overview [data-team] .julian {
-      width: 50px;
-    }
-
-    .julian {
-      position: absolute;
-      left: 143px;
-      top: 15px;
-    }
-
-    .align-middle {
-      position: absolute;
-      top: 45%;
-      width: 100%;
-      font-size: 1.3em !important;
-      text-align: center;
-    }
-
-    #delivering-webhooks .lefty,
-    #delivering-webhooks .righty {
-      display: inline-block;
-      position: relative;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-
-    #delivering-webhooks .subtext {
-      text-transform: none;
-      font-style: italic;
-    }
-
-
-    </style>
+    <link rel="stylesheet" href="css/webhooks.css">
 
     <!-- Printing and PDF exports -->
     <script>
@@ -356,7 +148,7 @@ document.getElementsByTagName('head')[0].appendChild(link);
         </section>
 
         <section data-background-image="img/grafana-screens.jpg" data-transition="none">
-          <h2>Measuring</h2>
+          <h2 class="text-shadow">Measuring</h2>
           <pre class="afragment" data-fragment-index="0"><code data-trim data-noescape class="language-bash">
           $ curl 'https://tripletex.no/api/mvp/webhook/<span class="value">measuring</span>'
           <span class="fragment" data-fragment-index="1">
@@ -369,6 +161,19 @@ document.getElementsByTagName('head')[0].appendChild(link);
           ]
           </span>
           </code></pre>
+        </section>
+
+        <section data-background-image="img/grafana-screens.jpg" data-transition="none" id="measurement-tech">
+          <h2 class="text-shadow">Monitoring technology</h2>
+
+          <div class="fragment grafana"    data-fragment-index="0"><img src="img/tech/grafana.png"    class="no-border" /></div>
+
+          <div class="tech-image fragment rabbitmq"   data-fragment-index="5"><div class="box"><span class="tech-title">Monitoring</span><img src="img/tech/rabbitmq.png"   class="no-border" /></div><div class="example"><img class="no-border" src="img/tech/rabbitmq-ex.png" /></div></div>
+          <div class="tech-image fragment influxdb"   data-fragment-index="3"><div class="box"><span class="tech-title">Text metrics</span><img src="img/tech/influxdb.png"   class="no-border" /></div><div class="example"><img class="no-border" src="img/tech/influxdb-ex.png" /></div></div>
+          <div class="tech-image fragment prometheus" data-fragment-index="1"><div class="box"><span class="tech-title">Numeric metrics</span><img src="img/tech/prometheus.png" class="no-border" /></div><div class="example"><img class="no-border" src="img/tech/prometheus-ex.png" /></div></div>
+          <div class="tech-image fragment elk"        data-fragment-index="2"><div class="box"><span class="tech-title">Log data</span><img src="img/tech/elk.png"        class="no-border" /></div><div class="example"><img class="no-border" src="img/tech/elk-ex.png" /></div></div>
+          <div class="tech-image fragment mysql"      data-fragment-index="4"><div class="box"><span class="tech-title">Database queries</span><img src="img/tech/mysql.png"      class="no-border" /></div><div class="example"><img class="no-border" src="img/tech/mysql-ex.png" /></div></div>
+
         </section>
 
         <section data-background="#7dc6c7" data-transition="none">

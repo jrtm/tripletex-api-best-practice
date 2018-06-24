@@ -1,0 +1,264 @@
+section img.no-border {
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.value span,
+.value {
+  color: #efef8f !important;
+}
+
+code a span {
+  text-decoration: underline;
+  color: #efef8f !important;
+}
+
+.reveal section pre code {
+  border-radius: 10px;
+  padding: 20px 10px;
+  font-size: 1.8em;
+  line-height: 1.1em;
+}
+.reveal section pre {
+  border-radius: 10px;
+}
+
+.reveal .slides section .fragment.highlight-red.visible span {
+  color: #ff2c2d;
+}
+
+.reveal .slides section .fragment.highlight-yellow {
+  opacity: 1;
+  visibility: inherit;
+}
+.reveal .slides section .fragment.highlight-yellow.visible span {
+  color: #efef9f;
+}
+
+#team-overview {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#team-overview [data-team] {
+  display: inline-block;
+  position: absolute;
+}
+#team-overview [data-team] > img {
+  width: 250px;
+}
+#team-overview [data-team='a-team'] {
+  bottom: 10%;
+  left: 30%;
+}
+#team-overview [data-team='a-team'] .love-box {
+  top: 110px;
+}
+#team-overview [data-team='bond'] {
+  bottom: 10%;
+  right: 30%;
+}
+#team-overview [data-team='bond'] .name {
+  margin-left: 60px;
+}
+#team-overview [data-team='krr'] {
+  top: 5%;
+  left: 20%;
+}
+#team-overview [data-team='tsk'] {
+  top: 5%;
+  left: 44%;
+}
+#team-overview [data-team='angry-nerds'] {
+  top: 5%;
+  right: 20%;
+}
+#team-overview .name {
+  text-align: center;
+  display: block;
+  text-transform: uppercase;
+  font-family: monospace;
+}
+
+.love-box {
+  position: absolute;
+  display: block;
+  border: 1px solid black !important;
+  padding: 5px 15px !important;
+  border-radius: 30px;
+}
+
+.heart {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background: url('img/hearts.ico') !important;
+  border: none !important;
+  box-shadow: none !important;
+  position: absolute;
+  top: -40px;
+  left: -15px;
+}
+
+.love-box {
+  left: 0;
+  top: 70px;
+  background-color: white;
+}
+
+.endpoint-box[data-endpoint='invoice'] {
+  top: 150px;
+}
+.endpoint-box[data-endpoint='project'] {
+  top: 200px;
+}
+
+section .footer {
+  font-size: 0.8em;
+}
+
+section .footer a {
+  color: blue;
+}
+
+.inline-image {
+  margin: 0 !important;
+  padding: 0 !important;
+  vertical-align: bottom;
+  position: relative;
+}
+
+.front-header span {
+  vertical-align: bottom;
+  position: relative;
+  bottom: -7px;
+  margin-right: 4px;
+  text-transform: none;
+}
+
+.front-header img {
+  vertical-align: bottom;
+}
+
+.front-header div {
+  display: inline-block;
+  position: relative;
+  left: 20px;
+}
+
+.slides {
+  background-image: url('img/tripletex-logo.svg');
+  background-position: bottom 20px left 20px;
+  background-size: 200px;
+  background-repeat: no-repeat;
+}
+
+#history p {
+  margin-bottom: 50px;
+}
+
+#history p span {
+  text-align: right;
+  display: inline-block;
+  width: 90%;
+}
+
+#history .tech {
+  font-weight: bold;
+}
+
+#history p b {
+  position: absolute;
+}
+
+#team-overview [data-team] .julian {
+  width: 50px;
+}
+
+.julian {
+  position: absolute;
+  left: 143px;
+  top: 15px;
+}
+
+.align-middle {
+  position: absolute;
+  top: 45%;
+  width: 100%;
+  font-size: 1.3em !important;
+  text-align: center;
+}
+
+#delivering-webhooks .lefty,
+#delivering-webhooks .righty {
+  display: inline-block;
+  position: relative;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#delivering-webhooks .subtext {
+  text-transform: none;
+  font-style: italic;
+}
+
+.tech-image {
+  display: inline-block;
+  background-color: white !important;
+  margin: 10px;
+  padding: 20px 0 0 0 !important;
+  border-radius: 30px;
+  text-align: center;
+  vertical-align: top !important;
+}
+
+.tech-image img {
+  vertical-align: middle;
+  max-width: 250px !important;
+}
+
+.tech-image.grafana {
+  background-color: #1f1f1f !important;
+  padding: 0 50px !important;
+  width: 250px;
+  display: block;
+  margin: 0 auto;
+}
+
+.tech-image .box {
+  padding: 0 20px;
+}
+
+.tech-title {
+  color: black;
+  display: block;
+  text-align: center;
+  font-size: 80% !important;
+}
+
+.tech-image .example {
+  background-color: #161719;
+}
+.grafana {
+  display: block;
+  width: 90%;
+  background-color: #282933 !important;
+  margin: 0 auto !important;
+  border-radius: 30px;
+  border: 2px solid white !important;
+  margin-bottom: 15px !important;
+}
+
+.grafana img {
+  margin: 10px 0 0 0 !important;
+}
+
+.text-shadow {
+  text-shadow: 3px 3px #333 !important;
+}
+
+#measurement-tech {
+  display: flex;
+}
