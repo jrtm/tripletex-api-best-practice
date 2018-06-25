@@ -96,7 +96,6 @@ code a span {
   display: inline-block;
   width: 50px;
   height: 50px;
-  background: url('img/hearts.ico') !important;
   border: none !important;
   box-shadow: none !important;
   position: absolute;
@@ -151,7 +150,7 @@ section .footer a {
 }
 
 .slides {
-  background-image: url('img/tripletex-logo.svg');
+  background-image: url('../img/tripletex-logo.svg');
   background-position: bottom 20px left 20px;
   background-size: 200px;
   background-repeat: no-repeat;
