@@ -38,6 +38,11 @@ document.getElementsByTagName('head')[0].appendChild(link);
             <p>Julian Ravn Thrap-Meyer</p>
             <p>Tech lead API / <a href="mailto:julian@tripletex.no">julian@tripletex.no</a></p>
           </div>
+          <aside class="notes">
+            <ul>
+              <li>I think first time</li>
+            </ul>
+          </aside>
         </section>
 
         <section data-background="#ebf1ed" data-transition="none">
@@ -68,6 +73,13 @@ document.getElementsByTagName('head')[0].appendChild(link);
           ]
           </span>
           </code></pre>
+
+          <aside class="notes">
+            <ul>
+              <li>Early 2017</li>
+              <li>May 2018</li>
+          </ul>
+          </aside>
         </section>
 
         <section data-background="#0085ca" data-transition="none">
@@ -103,6 +115,16 @@ document.getElementsByTagName('head')[0].appendChild(link);
             <img src="img/teams/angrynerds.png" class="no-border"/>
             <span class="name">Mobile</span>
           </div>
+
+          <aside class="notes">
+            <ul>
+              <li>Frontend frameworks</li>
+              <li>Event system</li>
+              <li>Architecture</li>
+              <li>Not domain experts</li>
+              <li>Patterns</li>
+            </ul>
+          </aside>
         </section>
 
         <section data-background="#7fbe00" data-transition="none" id="delivering-webhooks">
@@ -116,6 +138,13 @@ document.getElementsByTagName('head')[0].appendChild(link);
             Delivery risk<br />
             <span class="fragment subtext" data-fragment-index="3">(Existing value)</span>
           </span>
+
+          <aside class="notes">
+            <ul>
+              <li>Open delivery processes</li>
+              <li>Key things</li>
+            </ul>
+          </aside>
         </section>
 
         <section data-background="#7dc6c7" data-transition="none">
@@ -131,6 +160,13 @@ document.getElementsByTagName('head')[0].appendChild(link);
           ]
           </span>
           </code></pre>
+
+          <aside class="notes">
+            <ul>
+              <li>The MVP strategy</li>
+            </ul>
+          </aside>
+
         </section>
 
         <section data-background-image="img/mvp.jpg" data-transition="none"></section>
@@ -148,6 +184,13 @@ document.getElementsByTagName('head')[0].appendChild(link);
           ]
           </span>
           </code></pre>
+
+          <aside class="notes">
+            <ul>
+              <li>Real life MVP example</li>
+              <li>Monitor racks</li>
+            </ul>
+          </aside>
         </section>
 
         <section data-background-image="img/grafana-screens.jpg" data-transition="none">
@@ -177,6 +220,12 @@ document.getElementsByTagName('head')[0].appendChild(link);
           <div class="tech-image fragment elk"        data-fragment-index="2"><div class="box"><span class="tech-title">Log data</span><img src="img/tech/elk.png"        class="no-border" /></div><div class="example"><img class="no-border" src="img/tech/elk-ex.png" /></div></div>
           <div class="tech-image fragment mysql"      data-fragment-index="4"><div class="box"><span class="tech-title">Database queries</span><img src="img/tech/mysql.png"      class="no-border" /></div><div class="example"><img class="no-border" src="img/tech/mysql-ex.png" /></div></div>
 
+
+          <aside class="notes">
+            <ul>
+              <li>Use the right tool for the job</li>
+            </ul>
+          </aside>
         </section>
 
         <section data-background-image="img/business-case.jpg" data-transition="none">
@@ -191,6 +240,14 @@ document.getElementsByTagName('head')[0].appendChild(link);
           ]
           </span>
           </code></pre>
+
+          <aside class="notes">
+            <ul>
+              <li>Most important bit</li>
+              <li>Create most business value</li>
+              <li>No value = no customers</li>
+            </ul>
+          </aside>
         </section>
 
         <section data-background="#d5ff98" data-transition="none"><h4>Data synchronization</h4><img src="img/wh-flow/wh-1.svg" class="no-border" width="900px" /></section>
@@ -222,7 +279,7 @@ document.getElementsByTagName('head')[0].appendChild(link);
           $ curl 'https://tripletex.no/api/mvp/webhook/<span class="value">technical</span>'
           <span class="afragment" data-fragment-index="1">
           [
-              <span class="fragment" data-fragment-index="1">"<span class="value">Reuse API framework (auth, mapping, …)</span>",</span>
+              <span class="fragment" data-fragment-index="1">"<span class="value">Reuse API framework (authorization, mapping, …)</span>",</span>
               <span class="fragment" data-fragment-index="2">"<span class="value">Subscription API</span>",</span>
               <span class="fragment" data-fragment-index="3">"<span class="value">Event system (message queue)</span>",</span>
               <span class="fragment" data-fragment-index="4">"<span class="value">Database layer publishing events</span>",</span>
@@ -266,14 +323,14 @@ document.getElementsByTagName('head')[0].appendChild(link);
         <section data-background="#7fbe00" data-transition="none"><h2>Fields ("GraphQL")</h2><code>fields=<span class="value">number</span>,<span class="value">orderLines</span>(<span class="value">description</span>,<span class="value">count</span>)</code><img src="img/browser/order-orderlines-hl.png" width="60%" class="no-border" /></section>
 
         <section data-background="#7fbe00" data-transition="none">
-          <h2>Webhook payload</h2>
+          <h2>Webhook payload returned</h2>
 
           <pre class="afragment" data-fragment-index="0"><code data-trim data-noescape class="language-bash">
           $ curl 'https://tripletex.no/api/mvp/webhook/<span class="value">payload</span>'
           <span class="afragment">
             <span>"value": {
-              <span class="fragment" data-fragment-index="1"><span class="value">number</span>": "567",</span>
-              <span class="fragment" data-fragment-index="2"><span class="value">orderLines</span>": [
+              <span class="fragment" data-fragment-index="1">"<span class="value">number</span>": "567",</span>
+              <span class="fragment" data-fragment-index="2">"<span class="value">orderLines</span>": [
                 <span class="fragment" data-fragment-index="3">{ "<span class="value">count</span>": 1, "<span class="value">description</span>": "T-shirt"},</span>
                 <span class="fragment" data-fragment-index="4">{ "<span class="value">count</span>": 5, "<span class="value">description</span>": "Hat"},</span>
               ]</span>
@@ -297,6 +354,13 @@ document.getElementsByTagName('head')[0].appendChild(link);
           ]
           </span>
           </code></pre>
+          <aside class="notes">
+            <ul>
+              <li>Patterns, reuse auth, mapping, fields</li>
+              <li>MVP quickly try and fail, move to next</li>
+              <li>Data => business value AND scalability</li>
+            </ul>
+          </aside>
         </section>
 
         <section data-background="#7dc6c7" data-transition="none">
