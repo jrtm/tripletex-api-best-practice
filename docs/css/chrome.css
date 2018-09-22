@@ -75,6 +75,7 @@ section:first-child .navigate-left svg {
     sans-serif !important;
   font-size: 0.4em !important;
   vertical-align: middle !important;
+  color: #656a6d;
 }
 
 .chrome--pagetitle img {
@@ -192,4 +193,7 @@ section:first-child .navigate-left svg {
   background: #eee;
   padding: 40px !important;
   height: 600px;
+}
+.reveal .chrome--content * {
+  color: black;
 }
