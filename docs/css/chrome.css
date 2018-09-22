@@ -1,0 +1,195 @@
+.chromeframe {
+  width: 100%;
+  padding: 20px !important;
+}
+
+.chromebox {
+  background-color: white;
+  border-radius: 5px !important;
+  border-color: #cdcdcd !important;
+  box-shadow: 0px 4px 9px #333;
+}
+
+.chrome--top {
+  border-bottom: 1px solid #b6b4b6 !important;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.chrome--header {
+  background-color: #dee1e6;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.chrome--window-actions {
+  display: inline-block;
+  padding: 0 10px !important;
+  background-color: #dee1e6;
+  border-top-left-radius: 5px;
+  height: 50px;
+}
+
+.chrome--window-action-wrap {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-top-left-radius: 5px;
+}
+
+.chrome--window-border-thing-left {
+  background-color: #dee1e6;
+  height: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.chrome--window-border-thing-right {
+  background-color: #dee1e6;
+  width: 10px;
+  height: 10px;
+  border-bottom-left-radius: 100px;
+}
+
+.chrome--window-newtab-wrapper {
+  background-color: white;
+}
+
+section:last-child .navigate-right svg {
+  fill: #babcbe;
+}
+
+section:first-child .navigate-left svg {
+  fill: #babcbe;
+}
+
+.chrome--pagetitle {
+  display: inline-block;
+  background-color: #fff;
+  margin-top: 10px !important;
+  padding: 0 10px 0 10px !important;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+    sans-serif !important;
+  font-size: 0.4em !important;
+  vertical-align: middle !important;
+}
+
+.chrome--pagetitle img {
+  border: none !important;
+  outline: none !important;
+  background: none !important;
+  box-shadow: none !important;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px !important;
+  vertical-align: middle;
+}
+
+.chrome--close {
+  margin-left: 10px !important;
+  display: inline-block;
+}
+.chrome--close svg {
+  fill: #777;
+  width: 17px;
+  height: 17px;
+  vertical-align: middle;
+}
+
+.chrome--window-button {
+  content: " ";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 20px;
+  border-radius: 30px;
+  border-style: solid !important;
+  border-width: 1px !important;
+}
+.chrome--window-button.red {
+  background-color: #ff5b56;
+  border-color: #ec413e;
+}
+.chrome--window-button.yellow {
+  background-color: #ffbb2e;
+  border-color: #e59f24;
+}
+.chrome--window-button.green {
+  background-color: #00c941;
+  border-color: #17ac31;
+}
+
+.chrome--nav {
+  display: flex;
+  align-items: center;
+}
+
+.chrome--nav svg {
+  width: 35px;
+  height: 35px;
+  border-radius: 20px;
+  padding: 5px !important;
+  vertical-align: middle;
+}
+
+.chrome--nav-button {
+  padding-left: 10px !important;
+  cursor: pointer;
+}
+
+.chrome--nav-button:hover svg {
+  background-color: #eeeeef;
+  transition: background-color 0.15s ease-in;
+}
+
+.chrome--urlfield {
+  display: inline-block;
+  background-color: #f1f3f4;
+  font-family: system-ui !important;
+  font-size: 0.5em !important;
+  flex-grow: 1;
+  border-radius: 20px;
+  text-align: left;
+  padding: 5px 0 5px 30px !important;
+  margin: 5px 20px 5px !important;
+  vertical-align: middle !important;
+  border: 2px solid white !important;
+  color: #92989b;
+}
+
+.chrome--urlfield:focus {
+  border-radius: 20px;
+  outline: none;
+  border: 2px solid #bee4fd !important;
+}
+
+.chrome--urlfield-hostname {
+  color: black;
+}
+
+[contenteditable="true"].single-line {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+[contenteditable="true"].single-line br {
+  display: none;
+}
+[contenteditable="true"].single-line * {
+  display: inline;
+  white-space: nowrap;
+}
+
+.chromeframe *,
+.chromeframe {
+  box-sizing: border-box;
+}
+
+.chrome--content {
+  background: #eee;
+  padding: 40px !important;
+  height: 600px;
+}
