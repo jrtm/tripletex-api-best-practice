@@ -8,6 +8,7 @@
     const title = chrome.getAttribute("data-chrome-title").trim();
     const url = chrome.getAttribute("data-chrome-url").trim();
     const content = chrome.innerHTML;
+    const bg = chrome.getAttribute("data-chrome-background").trim();
 
     const template = document.getElementById("chrome-template").cloneNode(true);
     const tplTitle = template.querySelector(".chrome--pagetitle-text");
@@ -30,6 +31,7 @@
 
     tplTitle.innerText = title;
     tplContent.innerHTML = content;
+    if (bg) tplContent.style.backgroundColor = bg;
 
     chrome.outerHTML = template.outerHTML;
 

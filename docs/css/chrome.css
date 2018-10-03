@@ -1,4 +1,6 @@
 .chromeframe {
+  max-width: 1200px;
+  margin: 0 auto !important;
   width: 100%;
   padding: 20px !important;
 }
@@ -8,6 +10,11 @@
   border-radius: 5px !important;
   border-color: #cdcdcd !important;
   box-shadow: 0px 4px 9px #333;
+
+  animation-name: shakebox;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-delay: 2s;
 }
 
 .chrome--top {
@@ -192,8 +199,24 @@ section:first-child .navigate-left svg {
 .chrome--content {
   background: #eee;
   padding: 40px !important;
-  height: 600px;
 }
 .reveal .chrome--content * {
   color: black;
+}
+
+@keyframes pulse {
+  from {
+    transform: rotate(2deg) scale(1.1);
+  }
+  to {
+    transform: rotate(-2deg) scale(0.95);
+  }
+}
+
+.with-pulse {
+  animation-duration: 3s;
+  animation-name: pulse;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
 }

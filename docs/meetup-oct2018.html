@@ -1,0 +1,516 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Best practices! – Tripletex API meetup oktober 2018</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <link rel="stylesheet" href="css/chrome.css">
+
+    <style>
+
+    section img.no-border {
+      background:none;
+      border:none;
+      box-shadow:none;
+    }
+
+    .reveal h2, .reveal h3, .reveal h4 {
+      text-transform: none;
+    }
+
+    .reveal .big-points {
+      display:flex;
+      flex-direction:column;
+      justify-content: space-evenly;
+    }
+
+    .reveal .big-points h3 {
+       text-shadow: 0px 1px 4px #777;
+       color: white;
+       font-family: Times New Roman;
+       display: inline-block;
+       background-color: #7dc6c7e0;
+       padding: 20px 50px;
+       border-radius: 50px;
+       margin: 0 10px;
+    }
+
+    .fade-in-then-semi-out.visible:not(.current-fragment) {
+      opacity: 0.8 !important;
+    }
+
+    </style>
+
+    <!-- Printing and PDF exports -->
+    <script>
+    var link = document.createElement('link');
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match(/print-pdf/gi)
+  ? 'css/print/pdf.css'
+  : 'css/print/paper.css';
+document.getElementsByTagName('head')[0].appendChild(link);
+</script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <!-- Introduction -->
+
+        <section data-background="#7dc6c7" id="start">
+          <div data-chrome-title="Tripletex API meetup v2 – Nyheter" data-chrome-url="https://meetup.tripletex.no/news">
+            <h2 style="font-family: 'Times New Roman'">Nyheter fra</h2>
+            <img src="img/bare_hvit_sky.png" class="no-border with-pulse"/>
+            <h4 style="padding-top: 15px; color: #555; font-size: .8em; font-family: monospace">2018-10-04</h4>
+          </div>
+        </section>
+
+        <section id="intro" data-transition="zoom-in slide-out">
+          <div data-chrome-title="Tripletex API meetup v2 – Hvem er jeg?" data-chrome-url="https://meetup.tripletex.no/>whoAmI">
+            <h3>Hvem er jeg?</h3>
+            <div style="display:flex; align-items: center; justify-content: space-evenly">
+
+              <img class="no-border" src="img/julian-smaller.png" width="300px" height="300px"
+                  style="border-radius:500px; box-shadow: 3px 5px 9px #999;"/>
+
+              <span style="display: flex; flex-direction: column;"><span style="padding-bottom: 30px">Julian Ravn <br />Thrap-Meyer</span><span style="font-weight:bold">Tech lead API</span></span>
+            </div>
+          </div>
+        </section>
+
+        <section data-transition="slide-out">
+          <div data-chrome-title="Tripletex API meetup v2 – Innhold" data-chrome-url="https://meetup.tripletex.no/table-of-contents">
+            <div>
+              <h2>Litt fra forrige gang</h2>
+
+              <a href="best-practices.html"><img src="img/lastmeetup.png" width="500px"/></a>
+            </div>
+          </div>
+        </section>
+
+        <section id="old-news-github" data-transition="slide-in">
+          <style>
+          #old-news-github .chrome--content {
+            padding: 0 !important;
+            background-image: url(img/github2.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            min-height: 500px;
+          }
+          </style>
+          <div data-chrome-title="Tripletex API meetup v2 – Github" data-chrome-url="https://meetup.tripletex.no/old-news/github">
+            <div class="big-points" style="height: 500px;">
+              <h3 class="fragment">Changelog</h3>
+              <h3 class="fragment">Eksempler</h3>
+              <h3 class="fragment">Ressurser</h3>
+            </div>
+          </div>
+        </section>
+
+        <section id="old-news-workplace" data-transition="slide-in">
+          <style>
+          #old-news-workplace .chrome--content {
+            padding: 0 !important;
+            background-image: url(img/workplace.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            min-height: 500px;
+          }
+          </style>
+          <div data-chrome-title="Tripletex API meetup v2 – Workplace" data-chrome-url="https://meetup.tripletex.no/old-news/workplace">
+          </div>
+        </section>
+
+        <section id="old-news-swagger-loading" data-transition="slide-in">
+          <style>
+          #old-news-swagger-loading .chrome--content {
+            padding: 0 !important;
+            min-height: 500px;
+            background-color: #eaf1ed;
+          }
+          #old-news-swagger-loading img.fragment {
+            position: relative;
+            left: -300px;
+          }
+          #old-news-swagger-loading img.fragment.visible {
+            left: 0;
+          }
+          </style>
+          <div data-chrome-title="Tripletex API meetup v2 – Swagger" data-chrome-url="https://meetup.tripletex.no/old-news/swagger">
+            <img src="img/swagger-loading.png" class="no-border"/>
+            <img src="img/sleepy.gif" class="no-border fragment" />
+          </div>
+        </section>
+
+        <section id="old-news-swagger">
+          <style>
+          #old-news-swagger .chrome--content {
+            padding: 0 !important;
+            background-image: url(img/swagger.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            min-height: 500px;
+          }
+          </style>
+          <div data-chrome-title="Tripletex API meetup v2 – Swagger" data-chrome-url="https://meetup.tripletex.no/old-news/swagger">
+          </div>
+        </section>
+
+        <section id="news-swagger" data-background-color="#c3e2e3"  data-transition="zoom-in slide-out">
+          <style>
+          #news-swagger .chrome--content {
+            padding: 0 !important;
+            background-image: url(img/new-swagger.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            min-height: 500px;
+            background-position: center;
+            background-color: #eaf1ed;
+          }
+          </style>
+          <div data-chrome-title="Tripletex API meetup v2 – Ny Swagger!" data-chrome-url="https://meetup.tripletex.no/news/swagger">
+            <div class="big-points" style="height: 500px;">
+              <h3 class="fragment" style="font-family:monospace">tripletex.no/v2-docs/<span style="color:yellow">new</span></h3>
+              <h3 class="fragment">Raskere!</h3>
+              <h3 class="fragment">Mer oversiktlig!</h3>
+              <h3 class="fragment">(<img src="img/beta-icon.png" class="no-border" width="50px" style="vertical-align:middle; margin-right: 10px;"/>Foreløpig i beta)</h3>
+            </div>
+          </div>
+        </section>
+
+        <style>
+        .wh-stats div {
+          background-color: #80bd00;
+          padding: 15px;
+          color: white !important;
+          border-radius: 15px;
+        }
+        #news-webhooks .wh-stats .current-fragment {
+          font-weight: bold;
+        }
+        </style>
+        <section id="news-webhooks" data-background-image="img/summary.jpg" data-transition="slide-in slide-out">
+            <div data-chrome-title="Tripletex API meetup v2 – Webhooks" data-chrome-url="https://meetup.tripletex.no/news/webhooks">
+                <h2>Webhooks</h2>
+
+                <h4 class="fragment">Alternativ til polling</h4>
+                <h4 class="fragment">Realtime-synkronisering</h4>
+
+                <div style="display:flex;justify-content:space-between" class="wh-stats">
+                  <div class="fragment fade-in-then-semi-out">400.000 webhooks</div>
+                  <div class="fragment fade-in-then-semi-out">1000 abonnementer</div>
+                  <div class="fragment fade-in-then-semi-out">130 selskaper</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="news-testenv1" data-transition="slide-in" data-background="#80bd00">
+            <div data-chrome-title="Tripletex API meetup v2 – Testmiljø" data-chrome-url="https://meetup.tripletex.no/news/test-environment">
+                <h2>Testmiljø for integrasjoner</h2>
+
+                <h4 class="fragment">Selvbetjent opprettelse av nye integrasjoner</h4>
+                <h4 class="fragment">Ny testkonto på minuttet</h4>
+                <h4 class="fragment">Testing uten konsekvenser</h4>
+            </div>
+        </section>
+
+        <section id="news-testenv2" data-background="#80bd00">
+            <div data-chrome-title="Tripletex API meetup v2 – Testmiljø" data-chrome-url="https://meetup.tripletex.no/news/test-environment">
+                <h4><a href="https://api.tripletex.io"><span style="font-family:monospace;color: #1E73E6;text-shadow: 0px 2px white;">api.tripletex.io</span></a></h4>
+                <img src="img/integration-env.png" class="no-border" height="300px" data-fragment-index="1" />
+            </div>
+        </section>
+
+        <section id="news-testenv3" data-background="#80bd00">
+            <div data-chrome-title="Tripletex API meetup v2 – Testmiljø" data-chrome-url="https://meetup.tripletex.no/news/test-environment">
+                <h4><a href="https://api.tripletex.io"><span style="font-family:monospace;color: #1E73E6;text-shadow: 0px 2px white;">api.tripletex.<span style="color:red;text-decoration:underline">io</span></span></a></h4>
+                <img src="img/integration-env-focus.png" class="no-border" height="300px"/>
+            </div>
+        </section>
+
+        <section id="news-testenv4" data-background="#80bd00" data-transition="none-in slide-out">
+            <style>
+            #news-testenv4 .chrome--content {
+              padding: 0 !important;
+              background-image: url(img/integration-env-intro.png);
+              background-size: contain;
+              background-repeat: no-repeat;
+              min-height: 600px;
+              background-position: center;
+              background-color: #eaf1ed;
+            }
+            </style>
+            <div data-chrome-title="Tripletex API meetup v2 – Testmiljø" data-chrome-url="https://meetup.tripletex.no/news/test-environment">
+            </div>
+        </section>
+
+        <section id="news-endpoints" data-background="#0085ca" data-transition="slide-in">
+          <style>
+          #news-endpoints .new-endpoints {
+            white-space: nowrap;
+          }
+          #news-endpoints .new-endpoints div {
+            padding: 10px 5px;
+            margin: 10px 0 0 2.5px;
+            background-color: #217318;
+            border-radius: 50px;
+            width: 50%;
+            display: inline-block;
+            font-family: monospace;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0px 3px #1e9c10;
+          }
+          #news-endpoints .new-endpoints div:nth-child(odd) {
+            margin-right: 2.5px;
+            margin-left: 0;
+          }
+          </style>
+            <div data-chrome-title="Tripletex API meetup v2 – Nye kategorier" data-chrome-url="https://meetup.tripletex.no/news/api-categories">
+              <h2>Nye API-kategorier</h2>
+
+              <div class="new-endpoints">
+                <div class="fragment">/bank</div>
+                <div class="fragment">/event</div>
+              </div>
+              <div class="new-endpoints">
+                <div class="fragment">/reminder</div>
+                <div class="fragment">/travelExpense</div>
+              </div>
+            </div>
+        </section>
+
+        <section id="news-questions" data-transition="slide-in zoom-out" data-transition-speed="slow">
+            <style>
+            #news-questions .chrome--content {
+              height: 300px;
+            }
+            </style>
+            <div data-chrome-title="Tripletex API meetup v2 – Spørsmål" data-chrome-url="https://meetup.tripletex.no/news/questions">
+              <h3>Spørsmål?</h3>
+            </div>
+        </section>
+
+        <section id="pause" data-transition="zoom-in convex-out" data-transition-speed="slow">
+          <style>
+
+            .pause-text {
+              animation-name: pause;
+              animation-iteration-count: infinite;
+              animation-duration: 20s;
+              animation-delay: 5s;
+              animation-timing-function: ease-in-out;
+              font-weight: bold !important;
+              font-family: Georgia !important;
+            }
+
+            @keyframes pause {
+              0% {
+                transform: rotate3d(0deg);
+              }
+              50% {
+                transform: scaleX(-1);
+              }
+              100% {
+                transform: rotate3d(180deg);
+              }
+            }
+          </style>
+            <div class="pause-text">Pause</div>
+        </section>
+
+        <section data-background="#7dc6c7" id="webhooks" data-transition="convex-in">
+          <div data-chrome-title="Tripletex API meetup v2 – Fra null til webhooks" data-chrome-url="https://meetup.tripletex.no/webhooks">
+            <h2 style="font-family: 'Times New Roman'">Fra null til webhooks</h2>
+            <div class="with-pulse fragment"><h3>Live demo!</h3></div>
+          </div>
+        </section>
+
+        <section data-background="#7dc6c7" id="demo-1">
+          <div data-chrome-title="Tripletex API meetup v2 – Demo" data-chrome-url="https://meetup.tripletex.no/webhooks/demo">
+            <img class="no-border" src="img/integration-env-intro.png" height="500px" />
+          </div>
+        </section>
+
+        <section data-background="#7dc6c7" id="demo-2">
+          <div data-chrome-title="Tripletex API meetup v2 – Demo" data-chrome-url="https://meetup.tripletex.no/webhooks/demo">
+            <img class="no-border" src="img/wh/wizard-complete.png" height="500px" />
+          </div>
+        </section>
+
+        <section data-background="#7dc6c7" id="demo-3">
+          <div data-chrome-title="Tripletex API meetup v2 – Demo" data-chrome-url="https://meetup.tripletex.no/webhooks/demo">
+            <img class="no-border" src="img/wh/wizard-complete-focus.png" height="500px" />
+          </div>
+        </section>
+
+        <section data-background="#7dc6c7" id="demo-4">
+          <div data-chrome-title="Tripletex API meetup v2 – Demo" data-chrome-url="https://meetup.tripletex.no/webhooks/demo">
+            <img class="no-border" src="img/wh/create-token.png" height="500px" />
+          </div>
+        </section>
+
+        <section data-background="#7dc6c7" id="demo-5">
+          <div data-chrome-title="Tripletex API meetup v2 – Demo" data-chrome-url="https://meetup.tripletex.no/webhooks/demo">
+            <img class="no-border" src="img/wh/token-created.png" height="500px" />
+          </div>
+        </section>
+
+        <section data-background="#7dc6c7" id="demo-6">
+          <div data-chrome-title="Tripletex API meetup v2 – Demo" data-chrome-url="https://meetup.tripletex.no/webhooks/demo">
+            <img class="no-border" src="img/wh/swagger-auth.png" height="500px" />
+          </div>
+        </section>
+
+        <section data-background="#7dc6c7" id="demo-7">
+          <div data-chrome-title="Tripletex API meetup v2 – Demo" data-chrome-url="https://meetup.tripletex.no/webhooks/demo">
+            <img class="no-border" src="img/wh/event-endpoint.png" height="500px" />
+          </div>
+        </section>
+
+        <section data-background="#7dc6c7" id="demo-8">
+          <div data-chrome-title="Tripletex API meetup v2 – Demo" data-chrome-url="https://meetup.tripletex.no/webhooks/demo">
+            <img class="no-border" src="img/wh/project-model.png" height="600px" />
+          </div>
+        </section>
+
+        <section data-background="#7dc6c7" id="demo-9">
+          <div data-chrome-title="Tripletex API meetup v2 – Demo" data-chrome-url="https://meetup.tripletex.no/webhooks/demo">
+            <img class="no-border" src="img/wh/zapier1.png" height="500px" />
+          </div>
+        </section>
+
+        <section data-background="#7dc6c7" id="demo-10">
+          <div data-chrome-title="Tripletex API meetup v2 – Demo" data-chrome-url="https://meetup.tripletex.no/webhooks/demo">
+            <img class="no-border" src="img/wh/zapier2.png" height="500px" />
+          </div>
+        </section>
+
+        <section data-background="#7dc6c7" id="demo-11">
+          <div data-chrome-title="Tripletex API meetup v2 – Demo" data-chrome-url="https://meetup.tripletex.no/webhooks/demo">
+            <img class="no-border" src="img/wh/zapier3.png" height="600px" />
+          </div>
+        </section>
+
+        <section data-background="#7dc6c7" id="demo-12">
+          <div data-chrome-title="Tripletex API meetup v2 – Demo" data-chrome-url="https://meetup.tripletex.no/webhooks/demo">
+            <img class="no-border" src="img/wh/create-subscription.png" height="500px" />
+          </div>
+        </section>
+
+        <section data-background="#7dc6c7" id="demo-13">
+          <div data-chrome-title="Tripletex API meetup v2 – Demo" data-chrome-url="https://meetup.tripletex.no/webhooks/demo">
+            <img class="no-border" src="img/wh/create-response.png" height="500px" />
+          </div>
+        </section>
+
+        <section data-background="#7dc6c7" id="demo-14">
+          <div data-chrome-title="Tripletex API meetup v2 – Demo" data-chrome-url="https://meetup.tripletex.no/webhooks/demo">
+            <img class="no-border" src="img/wh/tripletex-project.png" height="500px" />
+          </div>
+        </section>
+
+        <section data-background="#7dc6c7" id="demo-15">
+          <div data-chrome-title="Tripletex API meetup v2 – Demo" data-chrome-url="https://meetup.tripletex.no/webhooks/demo">
+            <img class="no-border" src="img/wh/zapier4.png" height="500px" />
+          </div>
+        </section>
+
+        <section data-background="#7dc6c7" id="demo-16" data-transition="fade-out none-in">
+          <div data-chrome-title="Tripletex API meetup v2 – Demo" data-chrome-url="https://meetup.tripletex.no/webhooks/demo">
+            <img class="no-border" src="img/wh/spreadsheet.png" height="500px" />
+          </div>
+        </section>
+
+        <section data-background="#c3e2e3" id="thanks" data-transition="zoom-in">
+          <div data-chrome-title="Tripletex API meetup v2 – Takk for meg" data-chrome-url="https://meetup.tripletex.no/thanks">
+            <h3>Takk for meg!</h3>
+            <img src="img/meetup2-qr-code.svg" height="500px" />
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div style="display:none" id="chrome-template">
+      <div class="chromeframe">
+        <div class="chromebox">
+          <div class="chrome--top">
+            <div class="chrome--header">
+              <div class="chrome--window-action-wrap">
+                <div class="chrome--window-actions">
+                  <div class="chrome--window-button red"></div>
+                  <div class="chrome--window-button yellow"></div>
+                  <div class="chrome--window-button green"></div>
+                </div>
+                <div class="chrome--window-border-thing-left"></div>
+              </div>
+              <div class="chrome--pagetitle"><img src="css/favicon.ico" /><span class="chrome--pagetitle-text">Tripletex API Meetup v2</span><span class="chrome--close"><svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></span></div>
+              <div class="chrome--window-newtab-wrapper">
+                <div class="chrome--window-border-thing-right"></div>
+                <div class="chrome--newtab"></div>
+              </div>
+            </div>
+            <div class="chrome--nav">
+              <div class="chrome--nav-button chrome--nav-back navigate-left"><svg viewBox="0 0 32 32"><path d="M 4.22 14.03 C 3.53 14.15 3 14.77 3 15.5 C 3 16.25 3.53 16.86 4.24 16.98 L 4.02 17.19 L 14.36 27.51 C 14.65 27.81 15.05 28 15.5 28 C 16.33 28 17 27.33 17 26.5 C 17 26.05 16.8 25.65 16.49 25.38 L 16.55 25.32 L 8.22 17 L 27.51 17 C 28.33 17 29 16.33 29 15.5 C 29 14.67 28.33 14 27.51 14 L 8.2 14 L 16.55 5.66 C 16.81 5.34 17 4.94 17 4.5 C 17 3.68 16.33 3 15.5 3 C 15.06 3 14.66 3.2 14.39 3.5 L 14.36 3.47 L 4 13.81 Z"></path></svg></div>
+              <div class="chrome--nav-button chrome--nav-forward navigate-right"><svg viewBox="0 0 32 32"><path d="M 27.78 14.03 C 28.47 14.15 29 14.77 29 15.5 C 29 16.25 28.47 16.86 27.76 16.98 L 27.98 17.19 L 17.64 27.51 C 17.35 27.81 16.95 28 16.5 28 C 15.67 28 15 27.33 15 26.5 C 15 26.05 15.2 25.65 15.51 25.38 L 15.45 25.32 L 23.78 17 L 4.49 17 C 3.67 17 3 16.33 3 15.5 C 3 14.67 3.67 14 4.49 14 L 23.8 14 L 15.45 5.66 C 15.19 5.34 15 4.94 15 4.5 C 15 3.68 15.67 3 16.5 3 C 16.94 3 17.34 3.2 17.61 3.5 L 17.64 3.47 L 28 13.81 Z"></path></svg></div>
+              <div class="chrome--nav-button chrome--nav-refresh"><svg viewBox="0 0 32 32"><path d="M 25.1 20.15 L 25.08 20.14 C 23.51 23.59 20.04 26 16 26 C 10.48 26 6 21.52 6 16 C 6 10.48 10.48 6 16 6 C 19.02 6 21.72 7.34 23.55 9.45 L 23.55 9.45 L 19 14 L 25.8 14 L 28.83 14 L 30 14 L 30 3 L 25.67 7.33 C 23.3 4.67 19.85 3 16 3 C 8.82 3 3 8.82 3 16 C 3 23.18 8.82 29 16 29 C 21.27 29 25.8 25.86 27.84 21.34 C 27.96 21.13 28.03 20.88 28.03 20.61 C 28.03 19.78 27.36 19.11 26.53 19.11 C 25.87 19.11 25.3 19.55 25.1 20.15 Z"></path></svg></div>
+              <div class="chrome--urlfield single-line" contenteditable="true">https://<span class="chrome--urlfield-hostname">tripletex.no</span>/meetup-v2</div>
+            </div>
+          </div>
+          <div class="chrome--content">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="js/chrome.js"></script>
+
+    <script>
+
+    // More info about config & dependencies:
+// - https://github.com/hakimel/reveal.js#configuration
+// - https://github.com/hakimel/reveal.js#dependencies
+Reveal.initialize({
+  history: true,
+  width: '100%',
+  height: '100%',
+  controls: false,
+  transition: 'none',
+  progress: false,
+  margin: 0,
+  minScale: 1,
+  maxScale: 1,
+  dependencies: [
+    { src: 'plugin/markdown/marked.js' },
+    { src: 'plugin/markdown/markdown.js' },
+    { src: 'plugin/notes/notes.js', async: true },
+    {
+      src: 'plugin/highlight/highlight.js',
+      async: true,
+      callback: function() {
+        hljs.initHighlightingOnLoad();
+      }
+    }
+  ]
+});
+
+document.querySelectorAll('.chrome--nav-refresh').forEach(function (e) {
+  e.addEventListener('click', function () {
+    window.location.reload(true);
+  });
+});
+
+
+</script>
+  </body>
+</html>
